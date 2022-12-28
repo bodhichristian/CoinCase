@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA287FCB295C8BB200E05598 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA287FCA295C8BB200E05598 /* ChartView.swift */; };
+		AA287FCD295CD2F800E05598 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA287FCC295CD2F800E05598 /* Date.swift */; };
 		AA8C2E0A293528420029D7D4 /* CoinCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C2E09293528420029D7D4 /* CoinCaseApp.swift */; };
 		AA8C2E0C293528420029D7D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C2E0B293528420029D7D4 /* ContentView.swift */; };
 		AA8C2E0E293528420029D7D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8C2E0D293528420029D7D4 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA287FCA295C8BB200E05598 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		AA287FCC295CD2F800E05598 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		AA8C2E06293528420029D7D4 /* CoinCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8C2E09293528420029D7D4 /* CoinCaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCaseApp.swift; sourceTree = "<group>"; };
 		AA8C2E0B293528420029D7D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				AA8C2E1829352AD80029D7D4 /* Color.swift */,
 				AA8C2E30293548A60029D7D4 /* Double.swift */,
 				AABAA7E92937A9DD00859BEF /* UIApplication-Extension.swift */,
+				AA287FCC295CD2F800E05598 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				AABAA805293D6E5300859BEF /* DetailView.swift */,
+				AA287FCA295C8BB200E05598 /* ChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -370,12 +376,14 @@
 				AABAA808293D75B800859BEF /* CoinDetailModel.swift in Sources */,
 				AABAA8012939067900859BEF /* PortfolioDataService.swift in Sources */,
 				AABAA7EE2937BA5900859BEF /* StatView.swift in Sources */,
+				AA287FCD295CD2F800E05598 /* Date.swift in Sources */,
 				AA8C2E1929352AD80029D7D4 /* Color.swift in Sources */,
 				AA8C2E31293548A60029D7D4 /* Double.swift in Sources */,
 				AA8C2E57293681000029D7D4 /* NetworkingManager.swift in Sources */,
 				AA8C2E2D293541D20029D7D4 /* CoinModel.swift in Sources */,
 				AABAA7FA2938D5F000859BEF /* XMarkButton.swift in Sources */,
 				AA8C2E5C29368B3C0029D7D4 /* CoinImageService.swift in Sources */,
+				AA287FCB295C8BB200E05598 /* ChartView.swift in Sources */,
 				AABAA80C293DA0FA00859BEF /* CoinDetailDataService.swift in Sources */,
 				AABAA7E82937A47400859BEF /* SearchBarView.swift in Sources */,
 				AA8C2E3829356C2C0029D7D4 /* CoinDataService.swift in Sources */,
