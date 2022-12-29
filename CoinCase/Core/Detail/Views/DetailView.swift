@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject private var viewModel: DetailViewModel
+    @State private var showingFullDescription = false
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -31,12 +32,16 @@ struct DetailView: View {
                     
                     overviewTitle
                     Divider()
+                    
+                    descriptionSection
+                    
                     overviewGrid
                     
                     additionalTitle
                     Divider()
                     additionalGrid
                     
+                    linksSection
                 }
                 .padding()
             }
@@ -86,6 +91,55 @@ extension DetailView {
             .bold()
             .foregroundColor(.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var descriptionSection: some View {
+        ZStack {
+            if let coinDescription = viewModel.coinDescription, !coinDescription.isEmpty {
+                
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(coinDescription)
+                        .lineLimit(showingFullDescription ? nil : 3)
+                        .font(.callout)
+                        .foregroundColor(.theme.secondaryText)
+                    Button {
+                        showingFullDescription.toggle()
+
+                    } label: {
+                        Text(showingFullDescription ? "Less" : "Read more...")
+                            .font(.subheadline)
+                            .tint(.blue)
+                    }
+                    
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+    }
+    
+    private var linksSection: some View {
+        HStack {
+            Image(systemName: "arrow.up.right.square.fill")
+                .foregroundColor(.blue)
+            if let websiteString = viewModel.websiteURL,
+               let url = URL(string: websiteString) {
+                Link("\(viewModel.coin.name) wesbite", destination: url)
+            }
+            
+            Spacer()
+            
+            Image(systemName: "arrow.up.right.square.fill")
+                .foregroundColor(.blue)
+            if let redditString = viewModel.redditURL,
+               let url = URL(string: redditString) {
+                Link("Reddit", destination: url)
+            }
+        }
+        .padding(.vertical, 5)
+        .tint(.blue)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .font(.subheadline)
+        
     }
     
     private var overviewGrid: some View {
