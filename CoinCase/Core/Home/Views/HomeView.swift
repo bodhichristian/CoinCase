@@ -9,8 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
-    @State private var showingPortfolio = false
-    @State private var editingPortfolio = false
+    @State private var showingPortfolio = false // animate right
+    @State private var editingPortfolio = false // new sheet
+    @State private var showingInfo = false // new sheet
     
     var body: some View {
         ZStack {
@@ -23,11 +24,8 @@ struct HomeView: View {
             //content layer
             VStack {
                 homeHeader
-                
                 HomeStatView(showingPortfolio: $showingPortfolio)
-                
                 SearchBarView(searchText: $viewModel.searchText)
-                
                 columnTitles
                 
                 if !showingPortfolio {
@@ -36,11 +34,12 @@ struct HomeView: View {
                 } else {
                     portfolioCoinsView
                         .transition(.move(edge: .trailing))
-                    
                 }
-                
                 Spacer(minLength: 0)
             }
+            .sheet(isPresented: $showingInfo, content: {
+                InfoView()
+            })
         }
     }
 }
@@ -58,6 +57,8 @@ extension HomeView {
                 .onTapGesture {
                     if showingPortfolio {
                         editingPortfolio.toggle()
+                    } else {
+                        showingInfo.toggle()
                     }
                 }
             Spacer()
