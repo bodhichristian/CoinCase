@@ -10,6 +10,8 @@ import SwiftUI
 struct DetailView: View {
     @StateObject private var viewModel: DetailViewModel
     
+    @State private var showingFullDescription = false
+    
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -31,6 +33,7 @@ struct DetailView: View {
                     
                     overviewTitle
                     Divider()
+                    descriptionSection
                     overviewGrid
                     
                     additionalTitle
@@ -77,6 +80,28 @@ extension DetailView {
             .bold()
             .foregroundColor(.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var descriptionSection: some View {
+        ZStack {
+            if let coinDescription = viewModel.coinDescription, !coinDescription.isEmpty {
+                VStack(alignment: .leading) {
+                    Text(coinDescription)
+                        .font(.callout)
+                        .lineLimit(showingFullDescription ? 1000 : 3)
+                    
+                    Button {
+                        showingFullDescription.toggle()
+                    } label: {
+                        Text(showingFullDescription ? "Less" : "Read more...")
+                            .font(.caption)
+                            .padding(.vertical, 1)
+                    }
+                    .tint(.blue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
     }
     
     private var additionalTitle: some View {
