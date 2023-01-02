@@ -2,14 +2,17 @@
 //  String.swift
 //  CoinCase
 //
-//  Created by christian on 12/29/22.
+//  Created by christian on 1/2/23.
 //
 
 import Foundation
 
-// removes HTML in strings
+
 extension String {
-    var removeHTML: String {
+    
+    
+    var removingHTMLOccurances: String {
         return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
     }
+    
 }
