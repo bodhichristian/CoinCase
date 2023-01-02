@@ -31,9 +31,12 @@ struct HomeView: View {
                 if !showingPortfolio {
                     allCoinsView
                         .transition(.move(edge: .leading))
+                        .listRowBackground(Color.theme.background)
                 } else {
                     portfolioCoinsView
                         .transition(.move(edge: .trailing))
+                        .listRowBackground(Color.theme.background)
+
                 }
                 Spacer(minLength: 0)
             }

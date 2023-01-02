@@ -16,6 +16,7 @@ struct CoinCaseApp: App {
         //overrides default foreground color for navigation bar text attributes
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
+        UITableView.appearance().backgroundColor = UIColor.clear
         
     }
     
